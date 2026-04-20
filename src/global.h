@@ -1,8 +1,6 @@
 #pragma once 
 #include <Arduino.h>
 
-#define ARDUINO_ARCH_ESP32
-
 // Konstantendefinition 
 #ifdef ARDUINO_ARCH_AVR
   // Arduino Nano-spezifischer Code

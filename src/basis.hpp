@@ -1,9 +1,6 @@
 // basis.hpp
 
-#ifndef BASIS_H
-#define BASIS_H
-#pragma once                                                          // dafür Zeile 3 und 4 und letzte weg
-
+#pragma once                                                          // nur einmalige Einbindung der Headerdatei
 #include "global.h"
 
 class Led {
@@ -16,7 +13,7 @@ class Led {
     void update();
     void ledON() { status = ON; }                                     // (Inlinedeklaration)
     void ledOFF() { status = OFF; }
-    void ledSwitch() { status = (status) ? OFF : ON; }
+    void ledSwitch() { status = (status == ON) ? OFF : ON; }
 };
 
 void Led::init() {
@@ -27,8 +24,7 @@ void Led::init() {
 void Led::update() {
   static status_t ledstate = OFF;                                     // beim verlassen der Funktion bleibt der Wert erhalten
   if (ledstate != status) {
-    digitalWrite(pin, status);
+    digitalWrite(pin, (status == ON) ? HIGH : LOW);
     ledstate = status;
   }
 }
-#endif
