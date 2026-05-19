@@ -12,11 +12,20 @@
 	static const uint8_t LED1_PIN = 2;
 #endif
 
+const uint8_t MESSPOINTS = 8;
+
 // Typendefinition
 typedef enum {
   OFF = 0,
   ON
 } status_t;
 
+typedef struct {
+  uint8_t messung;
+  uint8_t sensoren;
+  uint16_t sensor[MESSPOINTS];
+} sensorData_t;
+
 // Klassenvorwärtsdeklaration
-class  Led;
+class Led;
+class SensorManager;

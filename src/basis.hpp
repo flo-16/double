@@ -1,7 +1,7 @@
 // basis.hpp
 
 #pragma once                                                          // nur einmalige Einbindung der Headerdatei
-#include "global.h"
+#include "global.hpp"
 
 class Led {
   private:
@@ -27,4 +27,16 @@ void Led::update() {
     digitalWrite(pin, (status == ON) ? HIGH : LOW);
     ledstate = status;
   }
+}
+
+class SensorManager {
+  private:
+    sensorData_t & data;
+  public:
+    SensorManager(sensorData_t & sD) : data(sD) {}
+    void update();
+};
+
+void SensorManager::update() {
+  // update irgendwas
 }

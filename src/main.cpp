@@ -1,6 +1,13 @@
 #include "basis.hpp"
 
+sensorData_t sensorData = {
+	.messung = 0,
+	.sensoren = 0,
+	.sensor = { 19, 28, 35, 41, 0, 0, 0, 0 }
+};
+
 Led led1(LED1_PIN);
+SensorManager sensorManager(sensorData);
 
 void setup() {
 	Serial.begin(115200);
@@ -11,4 +18,5 @@ void setup() {
 
 void loop() {
   led1.update();
+	sensorManager.update();
 }
